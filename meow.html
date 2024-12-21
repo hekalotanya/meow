@@ -1,0 +1,133 @@
+<html>
+  <head>
+    <style>
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: scale(0.5); }
+        50% { opacity: 1; transform: scale(1); }
+        100% { opacity: 0; transform: scale(0.5); }
+    }
+
+    .center-image {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: fadeInOut 3s ease-in-out;
+        display: none;
+    }
+
+    h1 {
+        color: #1a1b52;
+        font-size: 50px;
+        background-color: #7e82d6;
+        animation: blink 1s infinite;
+      }
+
+      p {
+        color: #303491;
+        font-size: 20px;
+        background-color: #a7aae8;
+      }
+
+      h2 {
+        color: #150d1c;
+        font-size: 80px;
+        background-color: #4a3161;
+      }
+
+      li {
+        color: #1d142e;
+        font-size: 80px;
+        background-color: #4f3b70;
+      }
+
+      h3 {
+        color: #734fb0;
+        font-size: 70px;
+        background-color: #371d63;
+      }
+
+      .meow_image {
+        width: 700px;
+        height: auto;
+      }
+
+      label {
+        font-size: 60px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Meow.</h1>
+    <p>
+      meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow
+      meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow
+      meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow
+      meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow
+      meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow
+      meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow
+      meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow
+      meow meow meow meow meow meow meow meow meow >=3
+    </p>
+
+    <h2>Why meow? Because:</h2>
+    <ul>
+      <li>meow</li>
+      <li>meow</li>
+      <li>meow</li>
+      <li>meow</li>
+      <li>meow</li>
+    </ul>
+
+    <h3>What will you choose?</h3>
+    <img class="meow_image" src="https://i.pinimg.com/736x/e8/cf/bb/e8cfbb0e37ebef791b1c98299465e635.jpg" id="animal-image" alt="meow">
+    <fieldset>
+      <label>
+        meow
+        <input type="radio" name="animals" class="radio-1" />
+      </label>
+      <label>
+        meow
+        <input type="radio" name="animals" class="radio-2" />
+      </label>
+    </fieldset>
+
+    <img id="center-image" class="center-image" src="default-image.jpg" alt="Center Animation" />
+
+    <script>
+        const radioButtons = document.querySelectorAll('input[name="animals"]');
+        const imageElement = document.getElementById('animal-image');
+        const centerImage = document.getElementById('center-image');
+
+        function updateImage() {
+          if (this.classList.contains('radio-1')) {
+            imageElement.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8VJjLo7C1NxhNaPTTaFKYjgs-lrzKYJj0Ow&s';
+          } else if (this.classList.contains('radio-2')) {
+            imageElement.src = 'https://uploads.dailydot.com/2024/07/side-eye-cat.jpg?auto=compress&fm=pjpg';
+          }
+        }
+
+        radioButtons.forEach((radio) => {
+          radio.addEventListener('change', updateImage);
+        });
+
+        function showAnimatedImage() {
+        centerImage.style.display = 'block';
+        centerImage.src = 'https://media.tenor.com/aSkdq3IU0g0AAAAM/laughing-cat.gif';
+        setTimeout(() => {
+            centerImage.style.display = 'none';
+        }, 3000);
+        }
+
+        setInterval(showAnimatedImage, 5000);
+        </script>
+  </body>
+</html>
